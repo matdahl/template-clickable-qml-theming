@@ -1,0 +1,15 @@
+{
+    "name": "theming.qml.template.matdahl",
+    "description": "A template for easy implementation of different color themes in a QML app",
+    "architecture": "@CLICK_ARCH@",
+    "title": "TEMPLATE: Theming in QML",
+    "hooks": {
+        "theming.qml.template": {
+            "apparmor": "theming.qml.template.apparmor",
+            "desktop":  "theming.qml.template.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Matthias Dahlmanns <email@domain.org>",
+    "framework" : "ubuntu-sdk-16.04"
+}
