@@ -1,14 +1,14 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the theming.qml.template.matdahl package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: theming.qml.template\n"
+"Project-Id-Version: theming.qml.template.matdahl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-17 02:22+0000\n"
+"POT-Creation-Date: 2020-12-12 21:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Hello World!"
+#: ../qml/Main.qml:54 theming.qml.template.desktop.in.h:1
+msgid "TEMPLATE: Theming in QML"
 msgstr ""
 
-msgid "TEMPLATE: Theming in QML"
+#: ../qml/Main.qml:73
+msgid "Dark Mode"
+msgstr ""
+
+#: ../qml/Main.qml:79
+msgid "Color"
+msgstr ""
+
+#: ../qml/Main.qml:88
+msgid ""
+"This is a template to demonstrate<br>how to include theming to an QML app."
 msgstr ""

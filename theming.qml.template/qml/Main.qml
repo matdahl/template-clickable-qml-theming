@@ -16,7 +16,6 @@
 
 import QtQuick 2.7
 import Ubuntu.Components 1.3
-//import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
 import Qt.labs.settings 1.0
 
@@ -29,25 +28,64 @@ MainView {
     width: units.gu(45)
     height: units.gu(75)
 
+    /* the object storing all color informations */
+    Colors{
+        id: colors
+        currentIndex: settings.colorIndex
+        darkMode:  settings.darkMode
+        onCurrentIndexChanged: settings.colorIndex = currentIndex
+    }
+
+    /* save preferences in config file */
+    Settings{
+        id: settings
+        property bool darkMode:  true
+        property int colorIndex: 0
+    }
+
+    // decide whether to use dark (Suru Dark) or light (Ambiance) theme
+    theme.name: settings.darkMode ? "Ubuntu.Components.Themes.SuruDark" : "Ubuntu.Components.Themes.Ambiance"
+
     Page {
         anchors.fill: parent
 
         header: PageHeader {
             id: header
             title: i18n.tr('TEMPLATE: Theming in QML')
+
+            // set the background color of the header to the current color
+            StyleHints{backgroundColor: colors.currentHeader}
+        }
+
+        // the bachground in the current background color
+        Rectangle{
+            id: background
+            anchors.fill: parent
+            color: colors.currentBackground
+        }
+
+        Column{
+            id: col
+            anchors.top: header.bottom
+            width: parent.width
+            SettingsEntrySwitch{
+                id: darkModeSwitch
+                text: i18n.tr("Dark Mode")
+                onCheckedChanged: settings.darkMode = checked
+                Component.onCompleted: checked = settings.darkMode
+            }
+            SettingsEntryColorSelector{
+                id: colorSelector
+                text: i18n.tr("Color")
+                model: colors.headerColors
+                currentSelectedColor: colors.currentIndex
+                onCurrentSelectedColorChanged: colors.currentIndex = currentSelectedColor
+            }
         }
 
         Label {
-            anchors {
-                top: header.bottom
-                left: parent.left
-                right: parent.right
-                bottom: parent.bottom
-            }
-            text: i18n.tr('Hello World!')
-
-            verticalAlignment: Label.AlignVCenter
-            horizontalAlignment: Label.AlignHCenter
+            anchors.centerIn: parent
+            text: i18n.tr('This is a template to demonstrate<br>how to include theming to an QML app.')
         }
     }
 }
