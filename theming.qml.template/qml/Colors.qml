@@ -1,22 +1,30 @@
 import QtQuick 2.7
 import Ubuntu.Components.Themes 1.3
+import Qt.labs.settings 1.0
 
 Item {
     id: root
 
-    // the currently selected color scheme
+    /* save preferences in config file */
+    Settings{
+        id: settings
+        category: "colors"
+        property alias darkMode: root.darkMode
+        property alias index:    root.currentIndex
+    }
+
     property int currentIndex: 0
-    readonly property int maxIndex: headerColors.length-1
+    property bool darkMode: true
+
     onCurrentIndexChanged: {
         if (currentIndex<0) {
             currentIndex = 0
-        } else if (currentIndex>headerColors.length-1) {
-            currentIndex = headerColors.length-1
+        } else if (currentIndex>maxIndex) {
+            currentIndex = maxIndex
         }
     }
+    readonly property int maxIndex: headerColors.length-1
 
-    // states whether light or dark theme is used
-    property bool darkMode: true
     readonly property int indexTheme: darkMode ? 0 : 1
 
     // the current colors

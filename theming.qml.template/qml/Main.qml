@@ -17,7 +17,6 @@
 import QtQuick 2.7
 import Ubuntu.Components 1.3
 import QtQuick.Layouts 1.3
-import Qt.labs.settings 1.0
 
 MainView {
     id: root
@@ -31,20 +30,11 @@ MainView {
     /* the object storing all color informations */
     Colors{
         id: colors
-        currentIndex: settings.colorIndex
-        darkMode:  settings.darkMode
-        onCurrentIndexChanged: settings.colorIndex = currentIndex
-    }
-
-    /* save preferences in config file */
-    Settings{
-        id: settings
-        property bool darkMode:  true
-        property int colorIndex: 0
     }
 
     // decide whether to use dark (Suru Dark) or light (Ambiance) theme
-    theme.name: settings.darkMode ? "Ubuntu.Components.Themes.SuruDark" : "Ubuntu.Components.Themes.Ambiance"
+    theme.name: colors.darkMode ? "Ubuntu.Components.Themes.SuruDark" : "Ubuntu.Components.Themes.Ambiance"
+    backgroundColor: colors.currentBackground
 
     Page {
         anchors.fill: parent
@@ -57,13 +47,6 @@ MainView {
             StyleHints{backgroundColor: colors.currentHeader}
         }
 
-        // the bachground in the current background color
-        Rectangle{
-            id: background
-            anchors.fill: parent
-            color: colors.currentBackground
-        }
-
         Column{
             id: col
             anchors.top: header.bottom
@@ -71,8 +54,8 @@ MainView {
             SettingsEntrySwitch{
                 id: darkModeSwitch
                 text: i18n.tr("Dark Mode")
-                onCheckedChanged: settings.darkMode = checked
-                Component.onCompleted: checked = settings.darkMode
+                onCheckedChanged: colors.darkMode = checked
+                Component.onCompleted: checked = colors.darkMode
             }
             SettingsEntryColorSelector{
                 id: colorSelector

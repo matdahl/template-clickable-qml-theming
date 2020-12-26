@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: theming.qml.template.matdahl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-12 21:30+0100\n"
+"POT-Creation-Date: 2020-12-26 12:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/Main.qml:54 theming.qml.template.desktop.in.h:1
+#: ../qml/Main.qml:44 theming.qml.template.desktop.in.h:1
 msgid "TEMPLATE: Theming in QML"
 msgstr ""
 
-#: ../qml/Main.qml:73
+#: ../qml/Main.qml:56
 msgid "Dark Mode"
 msgstr ""
 
-#: ../qml/Main.qml:79
+#: ../qml/Main.qml:62
 msgid "Color"
 msgstr ""
 
-#: ../qml/Main.qml:88
+#: ../qml/Main.qml:71
 msgid ""
 "This is a template to demonstrate<br>how to include theming to an QML app."
 msgstr ""
